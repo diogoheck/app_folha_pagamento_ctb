@@ -68,13 +68,14 @@ def Camsul(codigo_empresa, data, debito,
 
     data = data.replace('/', '')
 
-    lancamento = codigo_empresa + sep + data + sep + \
-        debito + sep + \
-        credito + sep + \
-        valor + sep + '' + sep + descricao + sep + '' + sep
+    if debito != 'None' and credito != 'None' and valor != '0,0':
+        lancamento = codigo_empresa + sep + data + sep + \
+            debito + sep + \
+            credito + sep + \
+            valor + sep + '' + sep + descricao + sep + '' + sep
 
-    with open('./arquivo_gerado/' + 'arquivo_importacao_folha.txt' + '.fpa', 'a', encoding='utf-8') as saida:
-        print(lancamento, file=saida)
+        with open('./arquivo_gerado/' + 'arquivo_importacao_folha.txt' + '.fpa', 'a', encoding='utf-8') as saida:
+            print(lancamento, file=saida)
 
 
 def MPE(codigo_empresa, data, debito,
