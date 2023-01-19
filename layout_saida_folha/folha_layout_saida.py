@@ -48,13 +48,15 @@ def Multi(codigo_empresa, data, debito,
 
     data = data.replace('/', '')
 
-    lancamento = codigo_empresa + sep + data + sep + \
-        debito + sep + \
-        credito + sep + \
-        valor + sep + '' + sep + descricao + sep + '' + sep
+    if debito != 'None' and credito != 'None' and valor != '0,0':
 
-    with open('./arquivo_gerado/' + centro_custo + '.fpa', 'a', encoding='utf-8') as saida:
-        print(lancamento, file=saida)
+        lancamento = codigo_empresa + sep + data + sep + \
+            debito + sep + \
+            credito + sep + \
+            valor + sep + '' + sep + descricao + sep + '' + sep
+
+        with open('./arquivo_gerado/' + centro_custo + '.fpa', 'a', encoding='utf-8') as saida:
+            print(lancamento, file=saida)
 
 
 def Camsul(codigo_empresa, data, debito,
