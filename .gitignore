@@ -1,7 +1,7 @@
 .venv
-arquivo_importacao_folha.txt
-log_folha.txt
 banco_de_dados/*.*
 build
 dist
 relatorios/*.*
+layouts/*.*
+arquivo_gerado/*.*

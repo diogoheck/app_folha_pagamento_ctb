@@ -21,6 +21,7 @@ arquivo_folha_ferias_1 = './relatorios/Relatório de provisão de férias_1.xlsx
 arquivo_folha_ferias_2 = './relatorios/Relatório de provisão de férias_2.xlsx'
 DATA_ARQUIVO_FOLHA_FERIAS = './temp/data_arquivo_prov_ferias.txt'
 DATA_ARQUIVO_FOLHA_13 = './temp/data_arquivo_prov_13.txt'
+arquivo_folha_13 = './relatorios/RELATORIO_ESPELHO_RESUMO 13º.xlsx'
 
 
 def remover_arquivo(arquivo):
@@ -168,12 +169,25 @@ if __name__ == '__main__':
             folha = './relatorios/RELATORIO_ESPELHO_RESUMO.xlsx'
             folha = load_workbook(folha)
             plan_folha = folha.active
-            # folha.save('./relatorios/RELATORIO_ESPELHO_RESUMO.xlsx')
+       
         except PermissionError as e:
             print('RELATORIO_ESPELHO_RESUMO.xlsx está aberto')
             print('\n')
             os.system('pause')
             exit(1)
+    elif exists(arquivo_folha_13):
+        
+        try:
+            folha = './relatorios/RELATORIO_ESPELHO_RESUMO 13º.xlsx'
+            folha = load_workbook(folha)
+            plan_folha = folha.active
+       
+        except PermissionError as e:
+            print('RELATORIO_ESPELHO_RESUMO 13º.xlsx está aberto')
+            print('\n')
+            os.system('pause')
+            exit(1)
+
     print('carregando os bancos de dados da empresa.....')
     print('\n')
     sleep(3)
@@ -227,7 +241,7 @@ if __name__ == '__main__':
 
     # print(dic_eventos)
 
-    if exists(arquivo_folha):
+    if exists(arquivo_folha) or exists(arquivo_folha_13):
         # ler dados folha
         print('lendo os dados da folha......')
         print('\n')

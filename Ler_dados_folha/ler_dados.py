@@ -52,7 +52,7 @@ def ler_dados_folha_auxiliar(plan_folha):
     for linha_folha in planilha_nova:
 
         # limpar strings vazias '' e NoneTypes
-
+        
         # pegar empresa
         if not not linha_folha:
             if len(linha_folha[0]) >= 8:
@@ -71,6 +71,12 @@ def ler_dados_folha_auxiliar(plan_folha):
                             print(linha_folha[0][59::].split(
                                 ' ')[0], file=data)
                     elif 'ADIANTAMENTO' in linha_folha[0].upper().split(' '):
+                        data = True
+                        with open(DATA_ARQUIVO_FOLHA, 'a', encoding='ansi') as data:
+                            print(linha_folha[0].split(
+                                ' ')[-1], file=data)
+                    elif '13º' in linha_folha[0].upper().split(' '):
+                        
                         data = True
                         with open(DATA_ARQUIVO_FOLHA, 'a', encoding='ansi') as data:
                             print(linha_folha[0].split(
